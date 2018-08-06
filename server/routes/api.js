@@ -40,12 +40,32 @@ const appRouter = function(app) {
         return res.status(500).json({ err: err.message });
       });
 
-
-
-
-
   });
 
+
+  // data to populate population detail for a particular place
+  app.get("/place-detail", function(req, res) {
+
+    const geonum = req.query.geonum;
+    const dataset = req.query.dataset || 'acs1216';
+
+    rp(`https://gis.dola.colorado.gov/capi/demog?limit=99999&db=${dataset}&schema=data&table=b01001&geonum=${geonum}&type=json`)
+      .then(data => JSON.parse(data))
+      .then(data => {
+
+        if (!data || !data.data) {
+          throw new Error('unexpected response, no data found');
+        }
+
+        return res.status(200).json(data);
+
+      })
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ err: err.message });
+      });
+
+  });
 
 
 };

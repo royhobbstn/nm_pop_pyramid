@@ -2,8 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { actionChangeTablePage } from './Redux/actions';
-import { getNumberOfPages } from './Redux/selectors';
+import { actionChangeTablePage } from '../Redux/actions';
+import { getNumberOfPages } from '../Redux/selectors';
 
 import { Pagination, Icon } from 'semantic-ui-react';
 

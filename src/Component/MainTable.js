@@ -2,8 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { selectorPagedDataList } from './Redux/selectors';
-import { actionSelectRow } from './Redux/actions';
+import { selectorPagedDataList } from '../Redux/selectors';
+import { thunkSelectRow } from '../Redux/thunks';
 
 import { Table } from 'semantic-ui-react';
 
@@ -26,8 +26,7 @@ const MainTable = ({ paged_data_list, selectRow }) => {
         <Table.Cell className="pop_column">{row.population.toLocaleString()}</Table.Cell>
       </Table.Row>
       );
-    })
-}
+    }) }
     </Table.Body>
 
   </Table>;
@@ -38,5 +37,5 @@ const MainTable = ({ paged_data_list, selectRow }) => {
 export default connect((state) => ({
   paged_data_list: selectorPagedDataList(state)
 }), {
-  selectRow: actionSelectRow
+  selectRow: thunkSelectRow
 })(MainTable);

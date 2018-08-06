@@ -34,3 +34,16 @@ export function actionUpdateFilterInputText(data) {
     data
   };
 }
+
+export function actionCloseModal() {
+  return {
+    type: 'CLOSE_MODAL'
+  };
+}
+
+export function actionPopulatePlaceDetail(data) {
+  return {
+    type: 'POPULATE_PLACE_DETAIL',
+    data
+  };
+}
