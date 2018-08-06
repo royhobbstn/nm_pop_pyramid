@@ -47,16 +47,20 @@ export const selectorPagedDataList = createSelector(
 export const selectorFormatChartData = createSelector(
   [getPlaceDetail], chart_data => {
 
-    // TODO: turn ACS data into Chart Data
+    const data = chart_data.data[0];
 
     return [
-      { name: 'Age 0-4', uv: 4000, Female: 2400, Male: 2400 },
-      { name: 'Age 5-9', uv: 3000, Female: 1398, Male: 2210 },
-      { name: 'Page C', uv: 2000, Female: 9800, Male: 2290 },
-      { name: 'Page D', uv: 2780, Female: 3908, Male: 2000 },
-      { name: 'Page E', uv: 1890, Female: 4800, Male: 2181 },
-      { name: 'Page F', uv: 2390, Female: 3800, Male: 2500 },
-      { name: 'Page G', uv: 3490, Female: 4300, Male: 2100 },
+      { name: '0-9', Female: Number(data.b01001027) + Number(data.b01001028), Male: Number(data.b01001003) + Number(data.b01001004) },
+      { name: '10-19', Female: Number(data.b01001029) + Number(data.b01001030) + Number(data.b01001031), Male: Number(data.b01001005) + Number(data.b01001006) + Number(data.b01001007) },
+      { name: '20-29', Female: Number(data.b01001032) + Number(data.b01001033) + Number(data.b01001034) + Number(data.b01001035), Male: Number(data.b01001008) + Number(data.b01001009) + Number(data.b01001010) + Number(data.b01001011) },
+      { name: '30-39', Female: Number(data.b01001036) + Number(data.b01001037), Male: Number(data.b01001012) + Number(data.b01001013) },
+      { name: '40-49', Female: Number(data.b01001038) + Number(data.b01001039), Male: Number(data.b01001014) + Number(data.b01001015) },
+      { name: '50-59', Female: Number(data.b01001040) + Number(data.b01001041), Male: Number(data.b01001016) + Number(data.b01001017) },
+      { name: '60-69', Female: Number(data.b01001042) + Number(data.b01001043) + Number(data.b01001044) + Number(data.b01001045), Male: Number(data.b01001018) + Number(data.b01001019) + Number(data.b01001020) + Number(data.b01001021) },
+      { name: '70-79', Female: Number(data.b01001046) + Number(data.b01001047), Male: Number(data.b01001022) + Number(data.b01001023) },
+      { name: '80+', Female: Number(data.b01001048) + Number(data.b01001049), Male: Number(data.b01001024) + Number(data.b01001025) },
+
     ];
+
 
   });
