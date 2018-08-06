@@ -1,19 +1,33 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+import { connect } from 'react-redux';
+
+import MainTable from './MainTable';
+import PaginationControl from './PaginationControl';
+
+import { actionUpdateFilterInputText } from './Redux/actions';
+
+import { Input } from 'semantic-ui-react';
+
+const App = ({ filter_input_text, updateFilterInputText }) => {
+  return (
+    <div className="main_content">
+        <p>Click a city in the table below to produce a population profile.</p>
+        <Input 
+          value={filter_input_text}
+          onChange={ (evt, data) => {
+              updateFilterInputText(data.value);
+            }} 
+          focus  icon='search' placeholder='Search...' />
+        <br /><br />
+        <MainTable />
+        <PaginationControl />
       </div>
-    );
-  }
-}
+  );
+};
 
-export default App;
+export default connect((state) => ({
+  filter_input_text: state.filter_input_text
+}), {
+  updateFilterInputText: actionUpdateFilterInputText
+})(App);

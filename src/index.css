@@ -1,5 +1,33 @@
 body {
-  margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: sans-serif;
+  margin: auto;
+}
+
+.main_content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.table_styling {
+  cursor: pointer;
+}
+
+.ui.table_styling td.pop_column  {
+  font-family: Courier;
+  text-align: right;
+  width: 40%;
+}
+
+.ui.table_styling th.pop_column  {
+  text-align: right;
+}
+
+.ui.pagination.pagination_control.menu {
+  margin: auto;
+  max-width: 600px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

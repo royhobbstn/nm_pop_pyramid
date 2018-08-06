@@ -10,7 +10,7 @@ const appRouter = function(app) {
     const sumlev = req.query.sumlev || '160';
     const dataset = req.query.dataset || 'acs1216';
 
-    rp(`https://gis.dola.colorado.gov/capi/demog?limit=99999&db=${dataset}&schema=data&table=b00001&sumlev=${sumlev}&type=json`)
+    rp(`https://gis.dola.colorado.gov/capi/demog?limit=99999&db=${dataset}&schema=data&table=b01003&sumlev=${sumlev}&type=json`)
       .then(data => JSON.parse(data))
       .then(data => {
 
@@ -22,7 +22,8 @@ const appRouter = function(app) {
         const pruned_data = data.data.map(city => {
           return {
             geoname: city.geoname,
-            geonum: city.geonum
+            geonum: city.geonum,
+            population: city.b01003001
           };
         });
 
