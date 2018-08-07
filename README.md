@@ -1,6 +1,6 @@
 # Filter through a list of places to view a population chart.
 
-In Progress.
+React/Redux application scaffolded with Create-React-App
 
 Instructions:
 
