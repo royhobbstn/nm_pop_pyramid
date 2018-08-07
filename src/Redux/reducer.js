@@ -19,7 +19,7 @@ const reducer = (
     case 'POPULATE_PLACE_DETAIL':
       return Object.assign({}, state, { place_detail: action.data, modal_data_busy: false });
     case 'UPDATE_FILTER_INPUT_TEXT':
-      return Object.assign({}, state, { filter_input_text: action.data });
+      return Object.assign({}, state, { filter_input_text: action.data, page_number: 1 });
     case 'SET_MAIN_DATA':
       return Object.assign({}, state, { data_list: action.data, main_data_busy: false });
     case 'SET_MAIN_DATA_BUSY':

@@ -12,6 +12,12 @@ npm run build
 npm run server
 ```
 
+OR use Docker
+
+```
+sudo docker run --name nm_pop_pyramid -d -p 8080:8080 royhobbstn/nm_pop_pyramid
+```
+
 Navigate to:
 ```
 http://localhost:8080/
